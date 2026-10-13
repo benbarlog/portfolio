@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Resume | Benjamin Barlog{% endblock %}
+
+{% block content %}
+<h2>Resume</h2>
+<p><a href="{% static 'portfolio/Barlog_resume.pdf' %}">Download my resume (PDF)</a></p>
+<iframe src="{% static 'portfolio/Barlog_resume.pdf' %}" width="100%" height="900" title="Resume"></iframe>
+{% endblock %}

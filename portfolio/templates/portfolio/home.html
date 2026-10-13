@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Home | Benjamin Barlog{% endblock %}
+
+{% block content %}
+<h2>Welcome</h2>
+<p>
+    Hi, I'm Benjamin Barlog, a Computer Science student (Data Science concentration, Mathematics minor)
+    at the University of Montana in Missoula, MT.
+</p>
+<p>
+    My work focuses on data science, geospatial analysis, and applied AI, with a particular
+    interest in defense autonomy. This site collects my experience, projects, and resume.
+</p>
+<ul>
+    <li><a href="{% url 'about' %}">About me and my skills</a></li>
+    <li><a href="{% url 'experience' %}">Research and professional experience</a></li>
+    <li><a href="{% url 'projects' %}">Projects</a></li>
+    <li><a href="{% url 'resume' %}">Resume</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+{% endblock %}
