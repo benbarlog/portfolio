@@ -1,0 +1,257 @@
+/* Custom styles. Loaded after Pico, so anything here overrides Pico's defaults. */
+
+/* ---------- Color palette and fonts ----------
+   Mostly black, white, and grays, with one muted steel-blue accent. */
+[data-theme="dark"] {
+    --accent: #6f8fb0;
+
+    --pico-background-color: #0a0c0f;
+    --pico-color: #b9c0c9;
+    --pico-muted-color: #7a838f;
+    --pico-muted-border-color: #20262e;
+
+    --pico-h1-color: #f3f5f7;
+    --pico-h2-color: #f3f5f7;
+    --pico-h3-color: #e7eaee;
+    --pico-h4-color: #dfe3e8;
+    --pico-h5-color: #dfe3e8;
+    --pico-h6-color: #dfe3e8;
+
+    /* Links and buttons: light gray / white instead of a bright color. */
+    --pico-primary: #e3e7ec;
+    --pico-primary-hover: #ffffff;
+    --pico-primary-underline: rgba(227, 231, 236, 0.3);
+    --pico-primary-hover-underline: #ffffff;
+    --pico-primary-background: #e3e7ec;
+    --pico-primary-hover-background: #ffffff;
+    --pico-primary-border: #e3e7ec;
+    --pico-primary-hover-border: #ffffff;
+    --pico-primary-inverse: #0a0c0f;
+    --pico-primary-focus: rgba(111, 143, 176, 0.4);
+
+    --pico-card-background-color: #101318;
+    --pico-card-box-shadow: none;
+
+    --pico-font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --pico-font-family-monospace: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+    /* Square corners feel more technical than rounded ones. */
+    --pico-border-radius: 2px;
+}
+
+/* ---------- Header and menu ---------- */
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(10, 12, 15, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--pico-muted-border-color);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Let the menu wrap onto a second line on narrow (phone) screens instead of running off the edge. */
+nav,
+nav ul {
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--pico-muted-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* The page you're currently on: white text with an accent underline. */
+nav a[aria-current="page"] {
+    color: #ffffff;
+    box-shadow: inset 0 -2px 0 var(--accent);
+    border-radius: 0;
+}
+
+nav a.brand {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+/* Phones: tighter menu spacing, and the header scrolls away instead of sticking. */
+@media (max-width: 600px) {
+    body > header {
+        position: static;
+    }
+
+    nav ul li {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+}
+
+/* ---------- Headings ---------- */
+h1,
+h2 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* Page titles get a short accent bar underneath. */
+main > h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin-top: 0.75rem;
+    background: var(--accent);
+}
+
+/* Section headings ("Education", "Skills", ...): small, spaced-out capitals with a thin line. */
+main > h3 {
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--pico-muted-border-color);
+    color: var(--pico-muted-color);
+    font-family: var(--pico-font-family-monospace);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+
+/* ---------- Small reusable bits ---------- */
+
+/* Small monospace caption above a title (e.g. "Geospatial Data Science · Python"). */
+.label {
+    margin-bottom: 0.5rem;
+    color: var(--pico-muted-color);
+    font-family: var(--pico-font-family-monospace);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* "In progress" badge. */
+.status {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.65rem;
+}
+
+/* One-line list of tools at the bottom of a project. */
+.tools {
+    margin-bottom: 0;
+    color: var(--pico-muted-color);
+    font-family: var(--pico-font-family-monospace);
+    font-size: 0.8rem;
+}
+
+/* Skills shown as small boxes instead of a bulleted list. */
+ul.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+}
+
+ul.tags li {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--pico-muted-border-color);
+    background: var(--pico-card-background-color);
+    color: #dfe3e8;
+    font-size: 0.85rem;
+}
+
+/* ---------- Project cards ---------- */
+article {
+    border: 1px solid var(--pico-muted-border-color);
+    border-left: 2px solid var(--accent);
+}
+
+article h3 {
+    margin-bottom: 1rem;
+}
+
+article h3 a {
+    text-decoration: none;
+}
+
+article h3 a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Welcome page ---------- */
+.hero {
+    padding: 4rem 0 2rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.hero .tagline {
+    max-width: 40rem;
+    color: #e3e7ec;
+    font-size: 1.25rem;
+}
+
+.hero p {
+    max-width: 40rem;
+}
+
+.hero .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero .actions a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Outlined secondary button (Pico's classless version doesn't include one). */
+.button-outline {
+    display: inline-block;
+    padding: var(--pico-form-element-spacing-vertical) var(--pico-form-element-spacing-horizontal);
+    border: 1px solid #e3e7ec;
+    border-radius: var(--pico-border-radius);
+    color: #e3e7ec;
+    text-decoration: none;
+}
+
+.button-outline:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+/* ---------- Footer ---------- */
+body > footer {
+    border-top: 1px solid var(--pico-muted-border-color);
+    color: var(--pico-muted-color);
+    font-family: var(--pico-font-family-monospace);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}

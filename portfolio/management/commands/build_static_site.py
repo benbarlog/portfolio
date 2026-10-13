@@ -20,10 +20,10 @@ class Command(BaseCommand):
     help = 'Export the site as static HTML into docs/ for GitHub Pages.'
 
     def handle(self, *args, **options):
+        # Overwrite files in place rather than deleting docs/ first: OneDrive can briefly lock
+        # folders during sync, which makes deleting them fail on Windows.
         out_dir = Path(settings.BASE_DIR) / 'docs'
-        if out_dir.exists():
-            shutil.rmtree(out_dir)
-        out_dir.mkdir()
+        out_dir.mkdir(exist_ok=True)
 
         with override_settings(STATIC_URL=SITE_PREFIX + 'static/', ALLOWED_HOSTS=['testserver']):
             client = Client()
@@ -39,7 +39,7 @@ class Command(BaseCommand):
                 (page_dir / 'index.html').write_bytes(response.content)
                 self.stdout.write(f'Wrote {page_dir / "index.html"}')
 
-        shutil.copytree(Path(__file__).resolve().parents[2] / 'static', out_dir / 'static')
+        shutil.copytree(Path(__file__).resolve().parents[2] / 'static', out_dir / 'static', dirs_exist_ok=True)
         # Tell GitHub Pages not to run the files through Jekyll.
         (out_dir / '.nojekyll').touch()
         self.stdout.write(self.style.SUCCESS(f'Static site built in {out_dir}'))

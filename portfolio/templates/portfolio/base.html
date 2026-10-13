@@ -1,32 +1,40 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Benjamin Barlog{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.classless.min.css">
+    <link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
 </head>
 <body>
+    {% with page=request.resolver_match.url_name %}
     <header>
-        <h1>Benjamin Barlog</h1>
         <nav>
-            <a href="{% url 'home' %}">Home</a> |
-            <a href="{% url 'about' %}">About</a> |
-            <a href="{% url 'experience' %}">Experience</a> |
-            <a href="{% url 'projects' %}">Projects</a> |
-            <a href="{% url 'resume' %}">Resume</a> |
-            <a href="{% url 'contact' %}">Contact</a>
+            <ul>
+                <li><a href="{% url 'home' %}" class="brand">Benjamin Barlog</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'about' %}" {% if page == 'about' %}aria-current="page"{% endif %}>About</a></li>
+                <li><a href="{% url 'experience' %}" {% if page == 'experience' %}aria-current="page"{% endif %}>Experience</a></li>
+                <li><a href="{% url 'projects' %}" {% if page == 'projects' %}aria-current="page"{% endif %}>Projects</a></li>
+                <li><a href="{% url 'resume' %}" {% if page == 'resume' %}aria-current="page"{% endif %}>Resume</a></li>
+                <li><a href="{% url 'contact' %}" {% if page == 'contact' %}aria-current="page"{% endif %}>Contact</a></li>
+            </ul>
         </nav>
-        <hr>
     </header>
+    {% endwith %}
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <hr>
-        <p>&copy; 2026 Benjamin Barlog</p>
+        <p>&copy; 2026 Benjamin Barlog &middot; Missoula, MT</p>
     </footer>
 </body>
 </html>
