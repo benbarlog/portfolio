@@ -6,8 +6,8 @@
 <h2>Projects</h2>
 
 <article>
-    <p class="label">Geospatial Data Science &middot; Python <span class="status">In progress</span></p>
-    <h3><a href="https://github.com/Benji-alt-acc/GNSS-interference-study">GNSS Interference Hotspots</a></h3>
+    <p class="label">Geospatial Data Science course project &middot; Python <span class="status">In progress</span></p>
+    <h3><a href="https://github.com/benbarlog/GNSS-interference-study">GNSS Interference Hotspots</a></h3>
     <p>
         <strong>Question:</strong> Where is GNSS (GPS) interference spatially clustered, how persistent
         are those clusters over time, and do the detected hotspots survive rigorous statistical treatment,
@@ -30,8 +30,8 @@
 </article>
 
 <article>
-    <p class="label">Data Visualization &middot; Python + Observable <span class="status">In progress</span></p>
-    <h3><a href="https://github.com/Benji-alt-acc/Terrain-masking">Terrain Masking &amp; Least-Exposure Routing</a></h3>
+    <p class="label">Data Visualization course project &middot; Python + Observable <span class="status">In progress</span></p>
+    <h3><a href="https://github.com/benbarlog/Terrain-masking">Terrain Masking &amp; Least-Exposure Routing</a></h3>
     <p>
         Using real USGS 3DEP elevation data around Missoula, MT, this project models where notional
         ground-based sensors can see low-altitude drones, then computes routes that minimize the chance
@@ -54,7 +54,22 @@
 </article>
 
 <article>
+    <p class="label">Geospatial Data Science course project &middot; Python + QGIS &middot; Aug &ndash; Sep 2026</p>
+    <h3>Housing Affordability in Recreation-Amenity Counties</h3>
+    <p>
+        Tested whether counties with strong outdoor-recreation access and little high-wage industry are
+        unaffordable for local workers, across 2,753 U.S. counties.
+    </p>
+    <ul>
+        <li>Built a home-price-to-local-wage metric (Zillow, BLS QCEW) and a recreation amenity index from federal-land polygon overlays and recreation employment (GeoPandas, statsmodels, QGIS)</li>
+        <li>Found a significant amenity &times; industry interaction (p &lt; 10<sup>-13</sup>): amenity's effect on unaffordability was ~3&times; larger where high-wage industry was scarce, acting through prices rather than wages</li>
+        <li>Caught and corrected a boundary-data error that overstated eastern national-forest land by up to 55 percentage points</li>
+    </ul>
+    <p class="tools">Python &middot; GeoPandas &middot; statsmodels &middot; QGIS</p>
+</article>
+
+<article>
     <p class="label">Web App Development</p>
-    <h3><a href="https://github.com/Benji-alt-acc/company-website">Company Website</a></h3>
+    <h3><a href="https://github.com/benbarlog/company-website">Company Website</a></h3>
 </article>
 {% endblock %}

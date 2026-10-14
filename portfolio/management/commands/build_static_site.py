@@ -13,7 +13,7 @@ from django.urls import reverse, set_script_prefix
 PAGES = ['home', 'about', 'experience', 'projects', 'resume', 'contact']
 
 # GitHub Pages serves a project site at https://<user>.github.io/<repo-name>/
-SITE_PREFIX = '/portfolio-website/'
+SITE_PREFIX = '/portfolio/'
 
 
 class Command(BaseCommand):

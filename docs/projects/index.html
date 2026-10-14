@@ -9,21 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.classless.min.css">
-    <link rel="stylesheet" href="/portfolio-website/static/portfolio/style.css">
+    <link rel="stylesheet" href="/portfolio/static/portfolio/style.css">
 </head>
 <body>
     
     <header>
         <nav>
             <ul>
-                <li><a href="/portfolio-website/" class="brand">Benjamin Barlog</a></li>
+                <li><a href="/portfolio/" class="brand">Benjamin Barlog</a></li>
             </ul>
             <ul>
-                <li><a href="/portfolio-website/about/" >About</a></li>
-                <li><a href="/portfolio-website/experience/" >Experience</a></li>
-                <li><a href="/portfolio-website/projects/" aria-current="page">Projects</a></li>
-                <li><a href="/portfolio-website/resume/" >Resume</a></li>
-                <li><a href="/portfolio-website/contact/" >Contact</a></li>
+                <li><a href="/portfolio/about/" >About</a></li>
+                <li><a href="/portfolio/experience/" >Experience</a></li>
+                <li><a href="/portfolio/projects/" aria-current="page">Projects</a></li>
+                <li><a href="/portfolio/resume/" >Resume</a></li>
+                <li><a href="/portfolio/contact/" >Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -34,8 +34,8 @@
 <h2>Projects</h2>
 
 <article>
-    <p class="label">Geospatial Data Science &middot; Python <span class="status">In progress</span></p>
-    <h3><a href="https://github.com/Benji-alt-acc/GNSS-interference-study">GNSS Interference Hotspots</a></h3>
+    <p class="label">Geospatial Data Science course project &middot; Python <span class="status">In progress</span></p>
+    <h3><a href="https://github.com/benbarlog/GNSS-interference-study">GNSS Interference Hotspots</a></h3>
     <p>
         <strong>Question:</strong> Where is GNSS (GPS) interference spatially clustered, how persistent
         are those clusters over time, and do the detected hotspots survive rigorous statistical treatment,
@@ -58,8 +58,8 @@
 </article>
 
 <article>
-    <p class="label">Data Visualization &middot; Python + Observable <span class="status">In progress</span></p>
-    <h3><a href="https://github.com/Benji-alt-acc/Terrain-masking">Terrain Masking &amp; Least-Exposure Routing</a></h3>
+    <p class="label">Data Visualization course project &middot; Python + Observable <span class="status">In progress</span></p>
+    <h3><a href="https://github.com/benbarlog/Terrain-masking">Terrain Masking &amp; Least-Exposure Routing</a></h3>
     <p>
         Using real USGS 3DEP elevation data around Missoula, MT, this project models where notional
         ground-based sensors can see low-altitude drones, then computes routes that minimize the chance
@@ -82,8 +82,23 @@
 </article>
 
 <article>
+    <p class="label">Geospatial Data Science course project &middot; Python + QGIS &middot; Aug &ndash; Sep 2026</p>
+    <h3>Housing Affordability in Recreation-Amenity Counties</h3>
+    <p>
+        Tested whether counties with strong outdoor-recreation access and little high-wage industry are
+        unaffordable for local workers, across 2,753 U.S. counties.
+    </p>
+    <ul>
+        <li>Built a home-price-to-local-wage metric (Zillow, BLS QCEW) and a recreation amenity index from federal-land polygon overlays and recreation employment (GeoPandas, statsmodels, QGIS)</li>
+        <li>Found a significant amenity &times; industry interaction (p &lt; 10<sup>-13</sup>): amenity's effect on unaffordability was ~3&times; larger where high-wage industry was scarce, acting through prices rather than wages</li>
+        <li>Caught and corrected a boundary-data error that overstated eastern national-forest land by up to 55 percentage points</li>
+    </ul>
+    <p class="tools">Python &middot; GeoPandas &middot; statsmodels &middot; QGIS</p>
+</article>
+
+<article>
     <p class="label">Web App Development</p>
-    <h3><a href="https://github.com/Benji-alt-acc/company-website">Company Website</a></h3>
+    <h3><a href="https://github.com/benbarlog/company-website">Company Website</a></h3>
 </article>
 
     </main>
