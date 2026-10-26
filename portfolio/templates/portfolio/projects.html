@@ -30,11 +30,11 @@
 </article>
 
 <article>
-    <p class="label">Data Visualization course project &middot; Python + Observable <span class="status">In progress</span></p>
-    <h3><a href="https://github.com/benbarlog/Terrain-masking">Terrain Masking &amp; Least-Exposure Routing</a></h3>
+    <p class="label">Data Visualization course project &middot; Python + Observable &middot; Oct 2026</p>
+    <h3><a href="https://observablehq.com/@benji823/how-terrain-masking-lets-drones-avoid-detection">Terrain Masking &amp; Least-Exposure Routing</a></h3>
     <p>
         Using real USGS 3DEP elevation data around Missoula, MT, this project models where notional
-        ground-based sensors can see low-altitude drones, then computes routes that minimize the chance
+        ground-based radars can see low-altitude drones, then computes routes that minimize the chance
         of detection. It is a simplified line-of-sight simulation on public data, not a realistic threat
         assessment; all sensor sites and parameters are notional.
     </p>
@@ -43,13 +43,20 @@
         (valleys, draws, lee sides of ridges) than shortest-distance routes between the same endpoints,
         and the effect weakens as flight altitude increases.
     </p>
+    <p>
+        <strong>Result:</strong> the null hypothesis was rejected. Terrain-aware routes ran through lower
+        relative elevation and more local relief than both a range-only control route and the straight line,
+        at every altitude tested, with the strongest effect at a 150 m radius. The advantage shrinks with
+        altitude (exposure saved versus the range-only route fell from 89% at 10 m to 44% at 300 m AGL).
+        The prediction that the best-predicting terrain scale grows with altitude was not supported.
+    </p>
     <ul>
-        <li>Per-sensor minimum-visible-altitude rasters computed with a radial horizon sweep</li>
-        <li>Probabilistic detection model and a survival-based path cost (&minus;ln(1 &minus; P)) solved exactly with Dijkstra / A*</li>
-        <li>Paired Wilcoxon signed-rank tests across randomized sensor layouts, start&ndash;goal pairs, and three flight altitudes</li>
-        <li>Interactive Observable notebook with an altitude slider, exposure maps, and path overlays</li>
-        <li>Planned extensions: greedy sensor-placement optimization, cost-to-go flow fields, and 3D altitude layers</li>
+        <li>Per-sensor minimum-visible-altitude rasters computed with a radial horizon sweep, validated against GDAL's viewshed</li>
+        <li>Radar-style detection model (Swerling I) and a survival-based path cost (&minus;ln(1 &minus; P)) solved exactly with Dijkstra / A*</li>
+        <li>Paired Wilcoxon signed-rank tests with Holm correction over 4,200 routes: 10 randomized sensor layouts, 20 start&ndash;goal pairs, and 7 flight altitudes from 10 to 300 m</li>
+        <li>Cost-to-go flow field showing the least-exposure heading from every cell, in an interactive Observable notebook</li>
     </ul>
+    <p><a href="https://observablehq.com/@benji823/how-terrain-masking-lets-drones-avoid-detection">View the interactive Observable notebook</a> &middot; <a href="https://github.com/benbarlog/Terrain-masking">Source on GitHub</a></p>
     <p class="tools">Python &middot; rasterio &middot; GDAL &middot; Observable &middot; JavaScript</p>
 </article>
 
